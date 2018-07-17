@@ -7,16 +7,37 @@
 //
 
 #import "ViewController.h"
+#import <Masonry.h>
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *button;
+
+
 @end
+
+
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.button mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        
+        //make.left.equalTo(self.view).offset(20);
+        //make.top.equalTo(self.view.mas_top).with.offset(50);
+        //make.right.equalTo(self.view).offset(-30);
+        make.center.mas_equalTo(self.view);
+        make.height.equalTo(@(50));
+        make.width.mas_equalTo(@(130));
+        
+    }];
+    
+    self.button.backgroundColor=[UIColor redColor];
+    
+    
 }
 
 
